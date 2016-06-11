@@ -10,6 +10,9 @@ import R from 'ramda'
 import immutablePersistenceTransform from './ImmutablePersistenceTransform'
 import Reactotron from 'reactotron'
 
+import reducer from '../Old_Reducers/'
+import thunkMiddleware from 'redux-thunk'
+
 // the logger master switch
 const USE_LOGGING = Config.reduxLogging
 // silence these saga-based messages
@@ -19,9 +22,9 @@ const logger = createLogger({
   predicate: (getState, { type }) => USE_LOGGING && R.not(R.contains(type, SAGA_LOGGING_BLACKLIST))
 })
 
-let middleware = []
+let middleware = [thunkMiddleware]
 const sagaMiddleware = createSagaMiddleware()
-middleware.push(sagaMiddleware)
+// middleware.push(sagaMiddleware)
 
 // Don't ship these
 if (__DEV__) {
@@ -58,13 +61,14 @@ export default () => {
     )
 
     store = createStore(
-      rootReducer,
+      // rootReducer,
+      reducer,
       enhancers
     )
   }
 
   // run sagas
-  sagaMiddleware.run(sagas)
+  // sagaMiddleware.run(sagas)
 
   return store
 }

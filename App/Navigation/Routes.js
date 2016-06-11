@@ -12,6 +12,14 @@ export default new class Routes {
   // they're lazily evaluated to prevent recursion
   // when the screens themselves use this Routes file.
 
+  get MapScreen () {
+    return {
+      title: 'MapScreen',
+      component: require('../Containers/MapScreen').default,
+      leftButton: 'BACK'
+    }
+  }
+
   get DeviceInfoScreen () {
     return {
       title: 'Device Info',
