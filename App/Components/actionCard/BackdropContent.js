@@ -36,7 +36,7 @@ class BackdropContent extends React.Component {
       <Animated.View style={{opacity: opacity, marginTop: marginTop}}>
         <Button onPress={this.props.onBackClick}
           style={[styles.backBtn]}>
-          <Icon name="chevron-left" size={24} style={[styles.back_image]} />
+          <Icon name="ios-arrow-back-outline" size={24} style={[styles.back_image]} />
         </Button>
       </Animated.View>
     );

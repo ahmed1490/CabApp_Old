@@ -52,7 +52,7 @@ export default () => {
     persistStore(store, {
       storage: AsyncStorage,
       blacklist: persistentStoreBlacklist,
-      transforms: [immutablePersistenceTransform]
+      // transforms: [immutablePersistenceTransform]
     })
   } else {
     const enhancers = compose(

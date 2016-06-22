@@ -87,7 +87,7 @@ class ActionCard extends React.Component {
         >
           <Icon name="ios-locate-outline" size={24} style={[styles.button_image]} />
           <View style={[styles.button_label, styles.vertical_center, styles.lightBottomBorder]}>
-            <Text style={[styles.button_text]}>
+            <Text style={[styles.button_text]} numberOfLines={1}>
               {this.props.start.name}
             </Text>
           </View>
