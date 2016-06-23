@@ -5,12 +5,13 @@ import createLogger from 'redux-logger'
 import rootReducer, { persistentStoreBlacklist } from '../Reducers/'
 import Config from '../Config/DebugSettings'
 import createSagaMiddleware from 'redux-saga'
-import sagas from '../Sagas/'
+// import sagas from '../Sagas/'
+import { helloSaga } from '../Cab_Sagas/'
 import R from 'ramda'
 import immutablePersistenceTransform from './ImmutablePersistenceTransform'
 import Reactotron from 'reactotron'
 
-import reducer from '../Old_Reducers/'
+import reducer from '../Cab_Reducers/'
 import thunkMiddleware from 'redux-thunk'
 
 // the logger master switch
@@ -69,6 +70,7 @@ export default () => {
 
   // run sagas
   // sagaMiddleware.run(sagas)
+  // sagaMiddleware.run(helloSaga)
 
   return store
 }

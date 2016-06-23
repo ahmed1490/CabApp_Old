@@ -46,7 +46,7 @@ export function setEnd(location, placeData) {
 }
 
 function getReverseGeocode(location, stateLocationFn, callback) {
-  console.log('RNGeocoder', RNGeocoder, location);
+  // console.log('RNGeocoder', RNGeocoder, location);
   var position = {
     lat: location.latitude,
     lng: location.longitude
@@ -54,7 +54,7 @@ function getReverseGeocode(location, stateLocationFn, callback) {
 
   RNGeocoder.geocodePosition(position)
     .then(data => {
-      console.log('data aaa ', data);
+      console.log('geocode Position ', data);
       const { latitude, longitude } = stateLocationFn();
 
       if ( latitude != location.latitude || longitude != location.longitude ) {  //check its not changed again
@@ -68,7 +68,7 @@ function getReverseGeocode(location, stateLocationFn, callback) {
       });
       console.log('found for:', location, data[0]);
     })
-    .catch(err => console.log('error with reverse geocode: ', err, location));
+    .catch(err => console.log('error with reverse geocode: ', err, position));
 }
 
 function setStartPosition(position) {
