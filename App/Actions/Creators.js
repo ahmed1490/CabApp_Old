@@ -7,6 +7,9 @@ const userPositionFailed = () => ({ type: Types.USER_POSITION_FAILED })
 
 const setMapRegion = (region) => ({ type: Types.SET_MAP_REGION, payload: region })
 
+const setJourneyStart = (position, placeData) => ({ type: Types.SET_JOURNEY_START, payload: {position, placeData} })
+const setJourneyEnd = (position, placeData) => ({ type: Types.SET_JOURNEY_START, payload: {position, placeData} })
+
 const setJourneyStartPosition = (position) => ({ type: Types.SET_JOURNEY_START_POSITION, payload: position })
 const setJourneyStartInfo = (placeData) => ({ type: Types.SET_JOURNEY_START_INFO, payload: placeData })
 const setJourneyEndPosition = (position) => ({ type: Types.SET_JOURNEY_END_POSITION, payload: position })
@@ -21,6 +24,9 @@ export default {
   userPositionFailed,
 
   setMapRegion,
+
+  setJourneyStart, //watch by saga
+  setJourneyEnd, //watch by saga
 
   setJourneyStartPosition,
   setJourneyStartInfo,

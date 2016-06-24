@@ -29,7 +29,7 @@ middleware.push(sagaMiddleware)
 
 // Don't ship these
 if (__DEV__) {
-  middleware.push(logger)
+  // middleware.push(logger)
 }
 
 // a function which can create our store and auto-persist the data

@@ -42,13 +42,13 @@ class MapBlock extends React.Component {
     }
   }
 
-  loadInitialPosition() {
-    // https://github.com/facebook/react-native/commit/13f2aea85f8db9eec3bd42b66f9dc868e0d5a24e
-    navigator.geolocation.getCurrentPosition(
-      (pos) => this.props.setStart({latitude:pos.coords.latitude, longitude: pos.coords.longitude}),
-      (error) => console.error(error)
-    );
-  }
+  // loadInitialPosition() {
+  //   // https://github.com/facebook/react-native/commit/13f2aea85f8db9eec3bd42b66f9dc868e0d5a24e
+  //   navigator.geolocation.getCurrentPosition(
+  //     (pos) => this.props.setStart({latitude:pos.coords.latitude, longitude: pos.coords.longitude}),
+  //     (error) => console.error(error)
+  //   );
+  // }
 
   setMapRegionToPosition(coords) {
     this.setState({mapRegion: {
@@ -59,13 +59,15 @@ class MapBlock extends React.Component {
   }
 
   _onRegionChange(region) {
+    // console.log('region')
     this.setState({mapRegion: region});
+    this.props.setStart({latitude: region.latitude, longitude: region.longitude});
   }
 
   _onRegionChangeComplete(region) {
-    // console.log('CHANGE COMPLETE---', region)
+    console.log('CHANGE COMPLETE---', region, this.props.setStart)
     this.setState({mapRegion: region});
-    this.props.setStart({latitude: region.latitude, longitude: region.longitude});
+    // this.props.setStart({latitude: region.latitude, longitude: region.longitude});
   }
 
   renderMarker() {

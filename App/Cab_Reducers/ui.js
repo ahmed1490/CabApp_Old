@@ -24,7 +24,7 @@ const initialState = {
 };
 
 export default function setLocation(state = initialState, action) {
-  console.log('searchign for action reducer', action);
+  // console.log('searchign for action reducer', action);
   switch (action.type) {
     case Types.SET_MAP_REGION:
 

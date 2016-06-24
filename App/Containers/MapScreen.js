@@ -38,11 +38,11 @@ export default class MapScreen extends React.Component {
           cars={ui.cars}
           startPosition={journey.startPosition}
 
-          setStart={actions.journey.setStart}
+          setStart={actions.setJourneyStart}
         />
 
         <MyLocationBtn
-          setStart={actions.journey.setStart}
+          setStart={actions.setJourneyStart}
         />
 
         <ActionCard
@@ -50,15 +50,15 @@ export default class MapScreen extends React.Component {
           start={journey.startInfo}
           end={journey.endInfo}
 
-          setOptionsVisible={actions.journey.setOptionsVisible}
-          setLocationSelection={actions.journey.setLocationSelection}
+          setOptionsVisible={/*actions.journey.setOptionsVisible*/()=>{}}
+          setLocationSelection={/*actions.journey.setLocationSelection*/()=>{}}
         />
         <PlacesCard
           locationSelection={journey.placeCardVisible}
 
-          setLocationSelection={actions.journey.setLocationSelection}
-          setStart={actions.journey.setStart}
-          setEnd={actions.journey.setEnd}
+          setLocationSelection={/*actions.journey.setLocationSelection*/()=>{}}
+          setStart={actions.setJourneyStart}
+          setEnd={actions.setJourneyEnd}
         />
       </View>
     )
@@ -72,6 +72,10 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   // console.log('LocationActions',LocationActions)
   // console.log('JourneyActions',JourneyActions)
+  return {
+    actions: bindActionCreators(Actions, dispatch)
+  }
+
   return {
     actions: {
       location: bindActionCreators(LocationActions, dispatch),

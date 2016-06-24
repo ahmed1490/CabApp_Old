@@ -1,4 +1,4 @@
-import { takeLatest } from 'redux-saga';
+import { takeLatest, delay } from 'redux-saga';
 import { call, put } from 'redux-saga/effects';
 
 import R from 'ramda'
@@ -9,6 +9,10 @@ import Actions from '../Actions/Creators'
 export default (api) => {
 
   function * setJourneyStart(action) {
+    // console.log('debouncing')
+    yield delay(500); // debounce by some secs
+    // console.log('debouncing stop COMPLETE---')
+
     // console.log('setJourneyStart***', arguments)
     let { position, placeData } = action.payload;
 
