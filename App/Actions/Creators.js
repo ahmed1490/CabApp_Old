@@ -1,32 +1,36 @@
 import Types from './Types'
 
-const attemptLogin = (username, password) =>
-  ({ type: Types.LOGIN_ATTEMPT, username, password })
-
-const loginSuccess = (username) =>
-  ({ type: Types.LOGIN_SUCCESS, username })
-
-const loginFailure = (errorCode) =>
-  ({ type: Types.LOGIN_FAILURE, errorCode })
-
-const logout = () => ({ type: Types.LOGOUT })
-
 const startup = () => ({ type: Types.STARTUP })
 
-const requestTemperature = (city) => ({ type: Types.TEMPERATURE_REQUEST, city })
-const receiveTemperature = (temperature) => ({ type: Types.TEMPERATURE_RECEIVE, temperature })
-const receiveTemperatureFailure = () => ({ type: Types.TEMPERATURE_FAILURE })
+const setUserPosition = (position) => ({ type: Types.SET_USER_POSITION, payload: position })
+const userPositionFailed = () => ({ type: Types.USER_POSITION_FAILED })
 
-/**
- Makes available all the action creators we've created.
- */
+const setMapRegion = (region) => ({ type: Types.SET_MAP_REGION, payload: region })
+
+const setJourneyStartPosition = (position) => ({ type: Types.SET_JOURNEY_START_POSITION, payload: position })
+const setJourneyStartInfo = (placeData) => ({ type: Types.SET_JOURNEY_START_INFO, payload: placeData })
+const setJourneyEndPosition = (position) => ({ type: Types.SET_JOURNEY_END_POSITION, payload: position })
+const setJourneyEndInfo = (placeData) => ({ type: Types.SET_JOURNEY_END_INFO, payload: placeData })
+
+
+
 export default {
-  attemptLogin,
-  loginSuccess,
-  loginFailure,
-  logout,
   startup,
-  requestTemperature,
-  receiveTemperature,
-  receiveTemperatureFailure
+
+  setUserPosition,
+  userPositionFailed,
+
+  setMapRegion,
+
+  setJourneyStartPosition,
+  setJourneyStartInfo,
+  setJourneyEndPosition,
+  setJourneyEndInfo
+
+
+
+  // currentLocation,
+
+  // setStart,
+  // setStartPosition
 }

@@ -6,7 +6,7 @@ import rootReducer, { persistentStoreBlacklist } from '../Reducers/'
 import Config from '../Config/DebugSettings'
 import createSagaMiddleware from 'redux-saga'
 // import sagas from '../Sagas/'
-import { helloSaga } from '../Cab_Sagas/'
+import sagas from '../Cab_Sagas/'
 import R from 'ramda'
 import immutablePersistenceTransform from './ImmutablePersistenceTransform'
 import Reactotron from 'reactotron'
@@ -25,7 +25,7 @@ const logger = createLogger({
 
 let middleware = [thunkMiddleware]
 const sagaMiddleware = createSagaMiddleware()
-// middleware.push(sagaMiddleware)
+middleware.push(sagaMiddleware)
 
 // Don't ship these
 if (__DEV__) {
@@ -70,7 +70,7 @@ export default () => {
 
   // run sagas
   // sagaMiddleware.run(sagas)
-  // sagaMiddleware.run(helloSaga)
+  sagaMiddleware.run(sagas)
 
   return store
 }

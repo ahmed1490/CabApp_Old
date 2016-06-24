@@ -14,8 +14,8 @@ import PlacesCard from '../Components/PlacesCard';
 
 import { bindActionCreators } from 'redux'
 
-import * as LocationActions from '../Actions/location'
-import * as JourneyActions from '../Actions/journey'
+import * as LocationActions from '../Old_Actions/location'
+import * as JourneyActions from '../Old_Actions/journey'
 
 import styles from './Styles/MapScreenStyle'
 import I18n from '../I18n/I18n.js'
@@ -29,13 +29,13 @@ export default class MapScreen extends React.Component {
   }
 
   render () {
-    console.log('this.props', this.props)
-    const { actions, location, journey } = this.props;
+    // console.log('this.props', this.props)
+    const { actions, ui, journey } = this.props;
 
     return (
       <View style={styles.container}>
         <MapBlock
-          cars={location.cars}
+          cars={ui.cars}
           startPosition={journey.startPosition}
 
           setStart={actions.journey.setStart}
@@ -46,15 +46,15 @@ export default class MapScreen extends React.Component {
         />
 
         <ActionCard
-          isOptionsVisible={journey.isOptionsVisible}
-          start={journey.start}
-          end={journey.end}
+          isOptionsVisible={ui.isOptionsVisible}
+          start={journey.startInfo}
+          end={journey.endInfo}
 
           setOptionsVisible={actions.journey.setOptionsVisible}
           setLocationSelection={actions.journey.setLocationSelection}
         />
         <PlacesCard
-          locationSelection={journey.locationSelection}
+          locationSelection={journey.placeCardVisible}
 
           setLocationSelection={actions.journey.setLocationSelection}
           setStart={actions.journey.setStart}
@@ -70,8 +70,8 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  console.log('LocationActions',LocationActions)
-  console.log('JourneyActions',JourneyActions)
+  // console.log('LocationActions',LocationActions)
+  // console.log('JourneyActions',JourneyActions)
   return {
     actions: {
       location: bindActionCreators(LocationActions, dispatch),

@@ -31,7 +31,9 @@ class MapBlock extends React.Component {
 
   componentWillMount() {
     const startPosition = this.props.startPosition;
-    startPosition && startPosition.latitude ? this.setMapRegionToPosition(startPosition) : this.loadInitialPosition();
+    // startPosition && startPosition.latitude ? this.setMapRegionToPosition(startPosition) : this.loadInitialPosition();
+
+    this.setMapRegionToPosition(startPosition)
   }
 
   componentWillReceiveProps(nextProps) {
