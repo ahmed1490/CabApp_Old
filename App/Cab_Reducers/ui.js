@@ -15,7 +15,7 @@ const initialState = {
     user_position: {},
 
     isOptionsVisible: false,
-    placeCardVisible: undefined, //'start'/'end'
+    visiblePlaceCard: undefined, //'start'/'end'
 
     cars: [
       {id: 1, latitude: 37.33260575262121, longitude: -122.0307375036871, duration: '3 mins'},
@@ -47,10 +47,10 @@ export default function setLocation(state = initialState, action) {
         isOptionsVisible: action.payload
       }
 
-    case Types.SET_LOCATION_SELECTION:
+    case Types.SET_VISIBLE_PLACE_CARD:
       return {
         ...state,
-        locationSelection: action.payload
+        visiblePlaceCard: action.payload
       }
 
     default:

@@ -12,30 +12,30 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import BackdropContent from './BackdropContent';
 
-const cardSizeClass = {
-
-}
 
 class ActionCard extends React.Component {
 
   static propTypes = {
-    isRegionUpdating: PropTypes.bool,
+    // isRegionUpdating: PropTypes.bool,
     isOptionsVisible: PropTypes.bool,
     start: PropTypes.object,
     end: PropTypes.object,
 
     setOptionsVisible: PropTypes.func,
-    setLocationSelection: PropTypes.func,
+    setVisiblePlaceCard: PropTypes.func,
 
-    cardPartialHide: PropTypes.object
+    // cardPartialHide: PropTypes.object
   };
   static defaultProps = {
     cardPartialHide: new Animated.Value(0)
   };
   state = {};
 
-  componentDidMount() {
-    // setTimeout(() => this.refs.actionCard.open(), 1000);
+  shouldComponentUpdate(nextProps) {
+    const props = this.props;
+    return props.isOptionsVisible !== nextProps.isOptionsVisible ||
+            props.start !== nextProps.start ||
+            props.end !== nextProps.end;
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -53,6 +53,7 @@ class ActionCard extends React.Component {
   }
 
   _hideMoreOptions(event) {
+    console.log('onBackClick')
     this.props.setOptionsVisible(false);
   }
 
@@ -83,7 +84,7 @@ class ActionCard extends React.Component {
         <Button
           containerStyle={[]}
           styleDisabled={{color: 'grey'}}
-          onPress={() => this.props.setLocationSelection('start')}
+          onPress={() => this.props.setVisiblePlaceCard('start')}
         >
           <Icon name="ios-locate-outline" size={24} style={[styles.button_image]} />
           <View style={[styles.button_label, styles.vertical_center, styles.lightBottomBorder]}>
@@ -107,7 +108,7 @@ class ActionCard extends React.Component {
         <Button
           containerStyle={[styles.darkBottomBorder, optionsVisibleStyle]}
           styleDisabled={{color: 'grey'}}
-          onPress={() => this.props.setLocationSelection('end')}
+          onPress={() => this.props.setVisiblePlaceCard('end')}
         >
           <Icon name="ios-cog" size={24} style={[styles.button_image]} />
           <View style={[styles.button_label, styles.vertical_center]}>

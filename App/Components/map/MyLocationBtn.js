@@ -22,6 +22,10 @@ class MyLocationBtn extends React.Component {
     setMapRegion: PropTypes.func,
   }
 
+  shouldComponentUpdate() {
+    return false;
+  }
+
   _getCurrentLocation(){
     navigator.geolocation.getCurrentPosition(
       (position) => {

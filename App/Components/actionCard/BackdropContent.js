@@ -32,6 +32,7 @@ class BackdropContent extends React.Component {
       inputRange: [0, 1],
       outputRange: [-50, 0]
     });
+    console.log('onBackClick', this.props.onBackClick)
     return (
       <Animated.View style={{opacity: opacity, marginTop: marginTop}}>
         <Button onPress={this.props.onBackClick}

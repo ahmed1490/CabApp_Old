@@ -14,7 +14,7 @@ export default createTypes(`
   SET_JOURNEY_END
 
   SET_OPTIONS_VISIBLE
-  SET_LOCATION_SELECTION
+  SET_VISIBLE_PLACE_CARD
 `)
 
 /*

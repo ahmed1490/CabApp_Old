@@ -21,11 +21,15 @@ class PlacesCard extends React.Component {
   };
 
   static propTypes = {
-    locationSelection: React.PropTypes.oneOf(['start', 'end']),
+    visiblePlaceCard: React.PropTypes.oneOf(['start', 'end']),
 
-    setLocationSelection: PropTypes.func,
+    setVisiblePlaceCard: PropTypes.func,
     setStart: PropTypes.func,
     setEnd: PropTypes.func,
+  }
+
+  shouldComponentUpdate(nextProps) {
+    return this.props.visiblePlaceCard !== nextProps.visiblePlaceCard;
   }
 
   componentWillMount () {
@@ -55,22 +59,22 @@ class PlacesCard extends React.Component {
       latitude: locationDetails.geometry.location.lat,
       longitude: locationDetails.geometry.location.lng
     }
-    if(this.props.locationSelection === 'start') {
+    if(this.props.visiblePlaceCard === 'start') {
       this.props.setStart(locationData, placeData);
     }
-    else if(this.props.locationSelection === 'end') {
+    else if(this.props.visiblePlaceCard === 'end') {
       this.props.setEnd(locationData, placeData);
     }
   }
 
   _closeModal () {
     dismissKeyboard();
-    this.props.setLocationSelection()
+    this.props.setVisiblePlaceCard()
   }
 
   render() {
-    // console.log('places--', this.props.isCardOpen)
-    const isCardOpen = !!this.props.locationSelection;
+    const isCardOpen = !!this.props.visiblePlaceCard;
+
     return (
       <Modal style={[styles.modal, {height: this.state.visibleHeight}]}
         backdrop={false}
@@ -80,7 +84,7 @@ class PlacesCard extends React.Component {
         onClosed={this._closeModal.bind(this)}>
 
         <View style={[styles.header]}>
-          <Text>{this.props.locationSelection == 'start' ? 'Start' : 'Destination'} {this.state.visibleHeight}</Text>
+          <Text>{this.props.visiblePlaceCard == 'start' ? 'Start' : 'Destination'} {this.state.visibleHeight}</Text>
         </View>
 
         <GooglePlacesAutocomplete

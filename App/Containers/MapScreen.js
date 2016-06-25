@@ -12,10 +12,7 @@ import MyLocationBtn from '../Components/map/MyLocationBtn';
 import ActionCard from '../Components/actionCard/ActionCard';
 import PlacesCard from '../Components/PlacesCard';
 
-import { bindActionCreators } from 'redux'
-
-// import * as LocationActions from '../Old_Actions/location'
-// import * as JourneyActions from '../Old_Actions/journey'
+import { bindActionCreators } from 'redux';
 
 import styles from './Styles/MapScreenStyle'
 import I18n from '../I18n/I18n.js'
@@ -29,7 +26,6 @@ export default class MapScreen extends React.Component {
   }
 
   render () {
-    // console.log('this.props', this.props)
     const { actions, ui, journey } = this.props;
 
     return (
@@ -51,13 +47,13 @@ export default class MapScreen extends React.Component {
           start={journey.startInfo}
           end={journey.endInfo}
 
-          setOptionsVisible={/*actions.journey.setOptionsVisible*/()=>{}}
-          setLocationSelection={/*actions.journey.setLocationSelection*/()=>{}}
+          setOptionsVisible={actions.setOptionsVisible}
+          setVisiblePlaceCard={actions.setVisiblePlaceCard}
         />
         <PlacesCard
-          locationSelection={journey.placeCardVisible}
+          visiblePlaceCard={ui.visiblePlaceCard}
 
-          setLocationSelection={/*actions.journey.setLocationSelection*/()=>{}}
+          setVisiblePlaceCard={actions.setVisiblePlaceCard}
           setStart={actions._setJourneyStart}
           setEnd={actions._setJourneyEnd}
         />
@@ -71,18 +67,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  // console.log('LocationActions',LocationActions)
-  // console.log('JourneyActions',JourneyActions)
   return {
     actions: bindActionCreators(Actions, dispatch)
   }
-
-  // return {
-  //   actions: {
-  //     location: bindActionCreators(LocationActions, dispatch),
-  //     journey: bindActionCreators(JourneyActions, dispatch)
-  //   }
-  // }
 }
 
 export default connect(

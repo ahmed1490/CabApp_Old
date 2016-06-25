@@ -13,6 +13,9 @@ const setJourneyStart = (position, placeData, mapRegionDelta) =>
 const _setJourneyEnd = (position, placeData) => ({ type: Types._SET_JOURNEY_END, payload: {position, placeData} })
 const setJourneyEnd = (position, placeData) => ({ type: Types.SET_JOURNEY_END, payload: {position, placeData} })
 
+const setOptionsVisible = (isOptionsVisible) => ({ type: Types.SET_OPTIONS_VISIBLE, payload: isOptionsVisible })
+const setVisiblePlaceCard = (visibleCard) => ({ type: Types.SET_VISIBLE_PLACE_CARD, payload: visibleCard })
+
 export default {
   startup,
 
@@ -24,6 +27,9 @@ export default {
 
   _setJourneyEnd, //watch by saga
   setJourneyEnd,
+
+  setOptionsVisible,
+  setVisiblePlaceCard
 }
 
 //component > setstartsaga (has to be one) > region_data to reducer >  (has to be one) sets start and region
