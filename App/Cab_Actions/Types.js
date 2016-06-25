@@ -1,0 +1,30 @@
+// A list of all actions in the system.
+import { createTypes } from 'reduxsauce'
+
+export default createTypes(`
+  STARTUP
+
+  SET_MAP_REGION
+  SET_USER_POSITION
+  USER_POSITION_FAILED
+
+  SET_OPTIONS_VISIBLE
+  SET_LOCATION_SELECTION
+
+  SET_JOURNEY_START
+  SET_JOURNEY_END
+
+  SET_JOURNEY_START_INFO
+  SET_JOURNEY_START_POSITION
+  SET_JOURNEY_END_INFO
+  SET_JOURNEY_END_POSITION
+
+`)
+
+/*
+only for watchers
+
+SET_JOURNEY_START
+SET_JOURNEY_END
+
+*/

@@ -1,7 +1,7 @@
 import { take, select, call } from 'redux-saga/effects'
 import R from 'ramda'
-import Types from '../Actions/Types'
-import Actions from '../Actions/Creators'
+import Types from '../Cab_Actions/Types'
+import Actions from '../Cab_Actions/Creators'
 import UserPositionSaga from './UserPositionSaga';
 import JourneyPointsSaga from './JourneyPointsSaga'
 
@@ -10,9 +10,8 @@ export function * makeStartup (api) {
 
   yield call(UserPositionSaga(api).worker);
 
-  const payload = { position: yield select((state) => state.ui.user_position) };
-
-  yield call(JourneyPointsSaga(api).setJourneyStart, Actions.setJourneyStartInfo(payload));
+  const position = yield select((state) => state.ui.user_position);
+  yield call(JourneyPointsSaga(api).setJourneyInfo, Actions.setJourneyStart(position, undefined));
 }
 
 

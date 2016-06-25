@@ -2,7 +2,7 @@
 import React, { PropTypes } from 'react'
 import { View, ScrollView, Text, LayoutAnimation, DeviceEventEmitter } from 'react-native'
 import { connect } from 'react-redux'
-import Actions from '../Actions/Creators'
+import Actions from '../Cab_Actions/Creators'
 // import Routes from '../Navigation/Routes'
 // import { Metrics } from '../Themes'
 
@@ -14,8 +14,8 @@ import PlacesCard from '../Components/PlacesCard';
 
 import { bindActionCreators } from 'redux'
 
-import * as LocationActions from '../Old_Actions/location'
-import * as JourneyActions from '../Old_Actions/journey'
+// import * as LocationActions from '../Old_Actions/location'
+// import * as JourneyActions from '../Old_Actions/journey'
 
 import styles from './Styles/MapScreenStyle'
 import I18n from '../I18n/I18n.js'
@@ -76,12 +76,12 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators(Actions, dispatch)
   }
 
-  return {
-    actions: {
-      location: bindActionCreators(LocationActions, dispatch),
-      journey: bindActionCreators(JourneyActions, dispatch)
-    }
-  }
+  // return {
+  //   actions: {
+  //     location: bindActionCreators(LocationActions, dispatch),
+  //     journey: bindActionCreators(JourneyActions, dispatch)
+  //   }
+  // }
 }
 
 export default connect(

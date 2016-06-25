@@ -1,7 +1,7 @@
 import {take, call, put} from 'redux-saga/effects'
 import R from 'ramda'
-import Types from '../Actions/Types'
-import Actions from '../Actions/Creators'
+import Types from '../Cab_Actions/Types'
+import Actions from '../Cab_Actions/Creators'
 import I18n from '../I18n/I18n.js'
 
 
@@ -13,7 +13,7 @@ export default (api) => {
     if (response.ok) {
       yield put(Actions.setUserPosition(response.data.coords))
     } else {
-      yield put(Actions.userPositionFailed())
+      yield put(Actions.userPositionFailed(response.data))
     }
   }
 

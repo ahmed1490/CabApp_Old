@@ -1,4 +1,4 @@
-import Types from '../Actions/Types';
+import Types from '../Cab_Actions/Types';
 
 // import { 
 //   SET_START_POSITION,

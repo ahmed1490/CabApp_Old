@@ -96,7 +96,7 @@ class MapBlock extends React.Component {
         <MapView
           showsCompass={true}
           showsScale={true}
-          // showsUserLocation={true}
+          showsUserLocation={true}
           ref="map"
           style={styles.map}
           region={mapRegion}

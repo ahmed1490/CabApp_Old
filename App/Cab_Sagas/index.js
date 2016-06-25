@@ -15,10 +15,7 @@ const api = DebugSettings.useFixtures ? FixtureAPI : API.create()
 // start the daemons
 export default function * root () {
   yield fork(makeStartup, api);
-
-  const journeyPoints = JourneyPointsSaga(api);
-  yield fork(journeyPoints.journeyStartWatcher);
-  yield fork(journeyPoints.journeyEndWatcher);
+  yield fork(JourneyPointsSaga(api).watcher);
 }
 
 
