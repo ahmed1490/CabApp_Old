@@ -1,4 +1,3 @@
-// A list of all actions in the system.
 import { createTypes } from 'reduxsauce'
 
 export default createTypes(`
@@ -19,8 +18,5 @@ export default createTypes(`
 
 /*
 only for watchers
-
-SET_JOURNEY_START
-SET_JOURNEY_END
-
+_SOMETHING
 */

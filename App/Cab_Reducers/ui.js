@@ -33,7 +33,6 @@ export default function setLocation(state = initialState, action) {
         user_position: action.payload
       }
 
-    // case Types.SET_MAP_REGION_DELTA:
     case Types.SET_JOURNEY_START:
 
       return {

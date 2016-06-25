@@ -17,6 +17,7 @@ export default (api) => {
   function * getJourneyInfo(payload) {
     if (!payload.placeData) {
       const response = yield call(api.getReverseGeocode, payload.position);
+      console.log('getReverseGeocode', JSON.stringify(response.data))
       payload.placeData = response.ok ? response.data : {};
     }
     return payload;

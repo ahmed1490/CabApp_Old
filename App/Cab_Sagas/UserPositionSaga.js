@@ -9,6 +9,7 @@ export default (api) => {
 
   function * worker () {
     const response = yield call(api.getGeoPosition);
+    console.log('getGeoPosition', JSON.stringify(response.data))
 
     if (response.ok) {
       yield put(Actions.setUserPosition(response.data.coords))

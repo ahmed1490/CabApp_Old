@@ -1,6 +1,6 @@
 import { fork } from 'redux-saga/effects'
 import API from '../Cab_Services/Api'
-import FixtureAPI from '../Services/FixtureApi'
+import FixtureAPI from '../Cab_Services/FixtureApi'
 import DebugSettings from '../Config/DebugSettings'
 
 import { makeStartup } from './StartupSaga'
