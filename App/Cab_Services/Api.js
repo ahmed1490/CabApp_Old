@@ -33,8 +33,7 @@ const create = (baseURL = 'http://openweathermap.org/data/2.1') => {
 
   const getReverseGeocode = (params) => {
     return new Promise((resolve, reject) => {
-      // console.log('position param', params);
-
+      
       const position = {
         lat: params.latitude, 
         lng: params.longitude

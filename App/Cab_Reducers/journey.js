@@ -1,15 +1,5 @@
 import Types from '../Cab_Actions/Types';
 
-// import { 
-//   SET_START_POSITION,
-//   SET_END_POSITION,
-//   SET_PLACE_START,
-//   SET_PLACE_END,
-//   SET_OPTIONS_VISIBLE,
-//   SET_LOCATION_SELECTION
-// } from '../Old_Actions/journey'
-
-
 // state in Redux
 // journey: {...}
 

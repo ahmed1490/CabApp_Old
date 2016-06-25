@@ -32,11 +32,4 @@ export default {
   setJourneyStartInfo,
   setJourneyEndPosition,
   setJourneyEndInfo
-
-
-
-  // currentLocation,
-
-  // setStart,
-  // setStartPosition
 }
