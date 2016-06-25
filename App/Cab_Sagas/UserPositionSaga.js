@@ -32,39 +32,24 @@ export default (api) => {
 
 
 
+// function* currentLocation() {
+//   const channel = yield actionChannel('location');
+//   yield take(channel);
 
+//   let response = yield call(Api.getCurrentPosition);
+//   yield put(Actions.setCurrentPosition(response.data));
+//   yield put(Actions.setStart(response.data));
 
+//   channel.close();
 
+//   fork(watchCurrentLocation); //check without fork
+// }
 
-
-
-
-
-
-
-
-
-
-
-
-function* currentLocation() {
-  const channel = yield actionChannel('location');
-  yield take(channel);
-
-  let response = yield call(Api.getCurrentPosition);
-  yield put(Actions.setCurrentPosition(response.data));
-  yield put(Actions.setStart(response.data));
-
-  channel.close();
-
-  fork(watchCurrentLocation); //check without fork
-}
-
-function* watchCurrentLocation() {
-  while(true) {
-    delay(1000);
-    let response = yield call(Api.getCurrentPosition);
-    yield put(Actions.setCurrentPosition(response.data));
-  }
-}
+// function* watchCurrentLocation() {
+//   while(true) {
+//     delay(1000);
+//     let response = yield call(Api.getCurrentPosition);
+//     yield put(Actions.setCurrentPosition(response.data));
+//   }
+// }
 

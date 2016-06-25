@@ -37,12 +37,13 @@ export default class MapScreen extends React.Component {
         <MapBlock
           cars={ui.cars}
           startPosition={journey.startPosition}
+          mapRegionDelta={ui.mapRegionDelta}
 
-          setStart={actions.setJourneyStart}
+          setStart={actions._setJourneyStart}
         />
 
         <MyLocationBtn
-          setStart={actions.setJourneyStart}
+          setStart={actions._setJourneyStart}
         />
 
         <ActionCard
@@ -57,8 +58,8 @@ export default class MapScreen extends React.Component {
           locationSelection={journey.placeCardVisible}
 
           setLocationSelection={/*actions.journey.setLocationSelection*/()=>{}}
-          setStart={actions.setJourneyStart}
-          setEnd={actions.setJourneyEnd}
+          setStart={actions._setJourneyStart}
+          setEnd={actions._setJourneyEnd}
         />
       </View>
     )

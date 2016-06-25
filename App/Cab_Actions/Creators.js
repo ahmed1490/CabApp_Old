@@ -5,17 +5,13 @@ const startup = () => ({ type: Types.STARTUP })
 const setUserPosition = (position) => ({ type: Types.SET_USER_POSITION, payload: position })
 const userPositionFailed = (err) => ({ type: Types.USER_POSITION_FAILED, payload: err })
 
-const setMapRegion = (region) => ({ type: Types.SET_MAP_REGION, payload: region })
+const _setJourneyStart = (position, placeData, latitudeDelta) =>
+			({ type: Types._SET_JOURNEY_START, payload: {position, placeData, latitudeDelta} })
+const setJourneyStart = (position, placeData, mapRegionDelta) =>
+			({ type: Types.SET_JOURNEY_START, payload: {position, placeData, mapRegionDelta} })
 
-const setJourneyStart = (position, placeData) => ({ type: Types.SET_JOURNEY_START, payload: {position, placeData} })
-const setJourneyEnd = (position, placeData) => ({ type: Types.SET_JOURNEY_START, payload: {position, placeData} })
-
-const setJourneyStartPosition = (position) => ({ type: Types.SET_JOURNEY_START_POSITION, payload: position })
-const setJourneyStartInfo = (placeData) => ({ type: Types.SET_JOURNEY_START_INFO, payload: placeData })
-const setJourneyEndPosition = (position) => ({ type: Types.SET_JOURNEY_END_POSITION, payload: position })
-const setJourneyEndInfo = (placeData) => ({ type: Types.SET_JOURNEY_END_INFO, payload: placeData })
-
-
+const _setJourneyEnd = (position, placeData) => ({ type: Types._SET_JOURNEY_END, payload: {position, placeData} })
+const setJourneyEnd = (position, placeData) => ({ type: Types.SET_JOURNEY_END, payload: {position, placeData} })
 
 export default {
   startup,
@@ -23,13 +19,12 @@ export default {
   setUserPosition,
   userPositionFailed,
 
-  setMapRegion,
+  _setJourneyStart, //watch by saga
+  setJourneyStart,
 
-  setJourneyStart, //watch by saga
-  setJourneyEnd, //watch by saga
-
-  setJourneyStartPosition,
-  setJourneyStartInfo,
-  setJourneyEndPosition,
-  setJourneyEndInfo
+  _setJourneyEnd, //watch by saga
+  setJourneyEnd,
 }
+
+//component > setstartsaga (has to be one) > region_data to reducer >  (has to be one) sets start and region
+// places card select > 

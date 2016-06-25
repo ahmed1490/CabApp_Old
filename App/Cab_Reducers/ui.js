@@ -9,8 +9,9 @@ import Types from '../Cab_Actions/Types';
 // state in Redux
 // location: {...}
 
+
 const initialState = {
-    mapRegion: {},
+    mapRegionDelta: {},
     user_position: {},
 
     isOptionsVisible: false,
@@ -26,17 +27,18 @@ const initialState = {
 export default function setLocation(state = initialState, action) {
   // console.log('action reducer', action);
   switch (action.type) {
-    case Types.SET_MAP_REGION:
-
-      return {
-        ...state,
-        mapRegion: action.payload
-      }
-
     case Types.SET_USER_POSITION:
       return {
         ...state,
         user_position: action.payload
+      }
+
+    // case Types.SET_MAP_REGION_DELTA:
+    case Types.SET_JOURNEY_START:
+
+      return {
+        ...state,
+        mapRegionDelta: action.payload.mapRegionDelta
       }
 
     case Types.SET_OPTIONS_VISIBLE:

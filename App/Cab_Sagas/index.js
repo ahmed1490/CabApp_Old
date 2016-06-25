@@ -5,19 +5,17 @@ import DebugSettings from '../Config/DebugSettings'
 
 import { makeStartup } from './StartupSaga'
 import JourneyPointsSaga from './JourneyPointsSaga'
+import uiSaga from './UISaga'
 
-// Create our API at this level and feed it into
-// the sagas that are expected to make API calls
-// so there's only 1 copy app-wide!
-// const api = API.create()
+// Feed sagas createed API so there's only 1 copy app-wide!
 const api = DebugSettings.useFixtures ? FixtureAPI : API.create()
 
 // start the daemons
 export default function * root () {
   yield fork(makeStartup, api);
   yield fork(JourneyPointsSaga(api).watcher);
+  yield fork(uiSaga);
 }
-
 
 //saga > api
 //saga > action/creator > action/types > reducers

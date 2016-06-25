@@ -11,32 +11,21 @@ const initialState = {
 };
 
 export default function setJourney(state = initialState, action) {
-  // console.log('searchign for action in journey reducer', action)
+  // console.log('SEARCHING for action in journey reducer', action)
   switch (action.type) {
-    case Types.SET_JOURNEY_START_POSITION:
+    case Types.SET_JOURNEY_START:
       return {
         ...state,
-        startPosition: action.payload
+        startPosition: action.payload.position,
+        startInfo: action.payload.placeData
       }
 
-    case Types.SET_JOURNEY_END_POSITION:
+    case Types.SET_JOURNEY_END:
       return {
         ...state,
+        endInfo: action.payload,
         endPosition: action.payload
       }
-
-    case Types.SET_JOURNEY_START_INFO:
-      return {
-        ...state,
-        startInfo: action.payload
-      }
-
-    case Types.SET_JOURNEY_END_INFO:
-      return {
-        ...state,
-        endInfo: action.payload
-      }
-
 
     default:
       return state
