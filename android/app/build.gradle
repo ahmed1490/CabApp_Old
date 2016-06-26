@@ -83,7 +83,7 @@ android {
     defaultConfig {
         applicationId "com.cabapp"
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
         ndk {
@@ -120,6 +120,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-android-permissions')
     compile project(':react-native-maps')
     compile project(':react-native-geocoder')
     compile project(':react-native-vector-icons')

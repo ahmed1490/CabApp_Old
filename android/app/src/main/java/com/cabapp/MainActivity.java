@@ -1,6 +1,7 @@
 package com.cabapp;
 
 import com.facebook.react.ReactActivity;
+import com.burnweb.rnpermissions.RNPermissionsPackage;
 import com.AirMaps.AirPackage;
 import com.devfd.RNGeocoder.RNGeocoderPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -41,6 +42,7 @@ public class MainActivity extends ReactActivity {
     protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
+            new RNPermissionsPackage(),
             new AirPackage(),
             new RNGeocoderPackage(),
             new VectorIconsPackage(),

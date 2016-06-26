@@ -8,12 +8,14 @@ import Drawer from 'react-native-drawer'
 import DebugSettings from './Config/DebugSettings'
 import './Config/PushConfig'
 
+import RequiresConnection from 'react-native-offline-mode'
+
 // Styles
 import styles from './Containers/Styles/RootStyle'
 
 const store = configureStore()
 
-export default class RNBase extends React.Component {
+class RNBase extends React.Component {
 
   componentWillMount () {
     const { dispatch } = store
@@ -69,3 +71,5 @@ export default class RNBase extends React.Component {
     return this.renderApp()
   }
 }
+
+export default RequiresConnection(RNBase);
