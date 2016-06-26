@@ -7,10 +7,10 @@ import Actions from '../Cab_Actions/Creators'
 // import { Metrics } from '../Themes'
 
 // internal components
-import MapBlock from '../Components/map/MapBlock';
-import MyLocationBtn from '../Components/map/MyLocationBtn';
-import ActionCard from '../Components/actionCard/ActionCard';
-import PlacesCard from '../Components/PlacesCard';
+import MapBlock from '../Cab_Components/Map/MapBlock';
+import MyLocationBtn from '../Cab_Components/Map/MyLocationBtn';
+import ActionCard from '../Cab_Components/ActionCard/ActionCard';
+import PlacesCard from '../Cab_Components/PlacesCard';
 
 import { bindActionCreators } from 'redux';
 
